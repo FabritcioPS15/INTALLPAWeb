@@ -29,32 +29,16 @@ export default function AboutPage() {
     { icon: CheckCircle, label: 'Certificaciones', value: 15, suffix: '+' },
   ];
 
-  const teamMembers = [
-    {
-      name: 'Carlos Mendez',
-      role: 'Agrónomo Principal',
-      image: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=400',
-    },
-    {
-      name: 'Maria Silva',
-      role: 'Jefa de Calidad',
-      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400',
-    },
-    {
-      name: 'David Torres',
-      role: 'Director de Operaciones',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400',
-    },
-  ];
+
 
   return (
     <div>
-      <Banner 
-        title="Acerca de INTALLPA FOODS" 
+      <Banner
+        title="Acerca de INTALLPA FOODS"
         subtitle="Agroindustria líder comprometida con la excelencia, la naturaleza y la sostenibilidad."
         image="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80"
       />
-      
+
       <section className="py-24 px-4 bg-[var(--bg-light)] relative overflow-hidden">
         <VinesDecoration className="top-0 left-0" />
         <div className="max-w-7xl mx-auto relative z-10">
@@ -62,8 +46,8 @@ export default function AboutPage() {
             {values.map((value, index) => {
               const Icon = value.icon;
               return (
-                <motion.div 
-                  key={index} 
+                <motion.div
+                  key={index}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -91,7 +75,7 @@ export default function AboutPage() {
       <section className="py-24 px-4 bg-white relative overflow-hidden">
         <VinesDecoration className="bottom-0 right-0 rotate-180" />
         <div className="max-w-7xl mx-auto relative z-10">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -108,13 +92,13 @@ export default function AboutPage() {
             {highlights.map((item, index) => {
               const Icon = item.icon;
               return (
-                <motion.div 
-                  key={index} 
+                <motion.div
+                  key={index}
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: index * 0.1, type: "spring" }}
-                  className="text-center p-12 relative overflow-hidden group hover:shadow-lg transition-all duration-300" 
+                  className="text-center p-12 relative overflow-hidden group hover:shadow-lg transition-all duration-300"
                   style={{ backgroundColor: 'white', borderRadius: '2px', border: '1px solid var(--primary-green)' }}
                 >
                   <div className="absolute inset-0 bg-[var(--bg-light)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -133,7 +117,7 @@ export default function AboutPage() {
             })}
           </div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -153,93 +137,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-24 px-4 relative overflow-hidden" style={{ backgroundColor: 'var(--bg-light)' }}>
-        <VinesDecoration className="top-1/4 left-0" />
-        <div className="max-w-7xl mx-auto relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6" style={{ color: 'var(--primary-green)' }}>
-              Nuestro Equipo
-            </h2>
-            <div className="w-24 h-1 mx-auto mb-8" style={{ backgroundColor: 'var(--gold-primary)' }}></div>
-            <p className="text-gray-600 text-lg max-w-3xl mx-auto mb-20 leading-relaxed font-light px-4">
-              El éxito de nuestra compañía se fundamenta en la experiencia y pasión de un equipo especializado de agrónomos, ingenieros y expertos internacionales listos para garantizar la calidad mundial de nuestro producto desde el campo hasta sus manos.
-            </p>
-          </motion.div>
-          
-          <div className="grid md:grid-cols-3 gap-12">
-            {teamMembers.map((member, index) => (
-              <div key={index} className="flex flex-col items-center group">
-                <motion.div 
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-50px" }}
-                  className="relative p-4 mb-8"
-                >
-                  <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 10 }}>
-                    <motion.rect
-                      width="100%"
-                      height="100%"
-                      fill="transparent"
-                      stroke="var(--gold-primary)"
-                      strokeWidth="2"
-                      strokeDasharray="4 4"
-                      initial={{ pathLength: 0 }}
-                      variants={{
-                        visible: { pathLength: 1, transition: { duration: 3, type: "tween", ease: "easeInOut" } }
-                      }}
-                    />
-                    <motion.rect
-                      x="4%"
-                      y="4%"
-                      width="92%"
-                      height="92%"
-                      fill="transparent"
-                      stroke="var(--primary-green)"
-                      strokeWidth="1"
-                      initial={{ pathLength: 0 }}
-                      variants={{
-                        visible: { pathLength: 1, transition: { duration: 2, delay: 0.5, type: "tween", ease: "easeInOut" } }
-                      }}
-                    />
-                  </svg>
-                  
-                  <div className="w-64 max-w-full aspect-[4/5] overflow-hidden shadow-sm relative z-0 mx-auto" style={{ borderRadius: '2px' }}>
-                    <motion.img
-                      initial={{ scale: 1.2, opacity: 0 }}
-                      variants={{
-                        visible: { scale: 1, opacity: 1, transition: { duration: 1.5, ease: "easeOut" } }
-                      }}
-                      src={member.image}
-                      alt={member.name}
-                      className="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-1 transition-transform duration-700"
-                    />
-                  </div>
-                </motion.div>
-                
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.8 }}
-                  className="text-center"
-                >
-                  <h3 className="text-xl font-bold mb-2" style={{ color: 'var(--primary-green)' }}>
-                    {member.name}
-                  </h3>
-                  <div className="w-8 h-px mx-auto mb-2" style={{ backgroundColor: 'var(--gold-primary)' }}></div>
-                  <p className="text-gray-500 uppercase text-xs tracking-widest font-bold">{member.role}</p>
-                </motion.div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
     </div>
   );
 }
