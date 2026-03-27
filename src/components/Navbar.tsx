@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Leaf, ChevronDown } from 'lucide-react';
+import { Menu, X, Leaf, ChevronDown, ChevronRight, Home, Info, Award, Phone } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [productsDropdownOpen, setProductsDropdownOpen] = useState(false);
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -168,36 +170,169 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-white border-t animate-in slide-in-from-top duration-300 shadow-xl">
-          <div className="px-4 py-6 space-y-2">
-            {[
-              { name: 'Inicio', href: '/' },
-              { name: 'Nosotros', href: '/about' },
-              { name: 'Todos los Productos', href: '/products' },
-              ...productLinks,
-              { name: 'Calidad', href: '/quality' },
-              { name: 'Contacto', href: '/contact' },
-            ].map((link) => {
-              const isActive = location.pathname === link.href;
-              return (
-                <Link
-                  key={link.name}
-                  to={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className={`block px-4 py-3 text-lg font-bold rounded-lg transition-colors ${
-                    isActive 
-                      ? 'bg-[var(--bg-light)] text-[var(--primary-green)]' 
-                      : 'text-gray-800 hover:bg-gray-50 hover:text-[var(--primary-green)]'
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsOpen(false)}
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[55] md:hidden"
+            />
+            
+            {/* Menu Panel */}
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="fixed top-0 right-0 h-full w-[85%] max-w-sm bg-white z-[60] shadow-2xl md:hidden overflow-y-auto"
+            >
+              <div className="p-6 flex flex-col h-full">
+                <div className="flex justify-between items-center mb-10">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-[var(--primary-green)] shadow-md">
+                      <Leaf className="w-5 h-5 text-white" />
+                    </div>
+                    <span className="text-lg font-bold tracking-tight text-[var(--primary-green)]">
+                      INTALLPA
+                    </span>
+                  </div>
+                  <button
+                    onClick={() => setIsOpen(false)}
+                    className="p-2 rounded-lg bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors"
+                  >
+                    <X className="w-6 h-6" />
+                  </button>
+                </div>
+
+                <div className="flex flex-col space-y-2">
+                  {[
+                    { name: 'Inicio', href: '/', icon: Home },
+                    { name: 'Nosotros', href: '/about', icon: Info },
+                  ].map((link) => {
+                    const isActive = location.pathname === link.href;
+                    const Icon = link.icon;
+                    return (
+                      <Link
+                        key={link.name}
+                        to={link.href}
+                        onClick={() => setIsOpen(false)}
+                        className={`flex items-center space-x-4 px-4 py-4 rounded-xl font-bold transition-all ${
+                          isActive 
+                            ? 'bg-[var(--primary-green)] text-white shadow-lg' 
+                            : 'text-gray-700 hover:bg-gray-50'
+                        }`}
+                      >
+                        <Icon className={`w-5 h-5 ${isActive ? 'text-white' : 'text-gray-400'}`} />
+                        <span className="text-lg">{link.name}</span>
+                      </Link>
+                    );
+                  })}
+
+                  {/* Products Accordion */}
+                  <div className="flex flex-col">
+                    <button
+                      onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
+                      className={`flex items-center justify-between w-full px-4 py-4 rounded-xl font-bold transition-all ${
+                        location.pathname.startsWith('/products') 
+                          ? 'bg-[var(--bg-light)] text-[var(--primary-green)]' 
+                          : 'text-gray-700 hover:bg-gray-50'
+                      }`}
+                    >
+                      <div className="flex items-center space-x-4">
+                        <Leaf className={`w-5 h-5 ${location.pathname.startsWith('/products') ? 'text-[var(--primary-green)]' : 'text-gray-400'}`} />
+                        <span className="text-lg">Productos</span>
+                      </div>
+                      <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${mobileProductsOpen ? 'rotate-180' : ''}`} />
+                    </button>
+                    
+                    <AnimatePresence>
+                      {mobileProductsOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="overflow-hidden bg-gray-50 rounded-xl mt-1 ml-4"
+                        >
+                          <div className="py-2 flex flex-col">
+                            <Link
+                              to="/products"
+                              onClick={() => setIsOpen(false)}
+                              className="px-8 py-3 font-bold text-gray-500 hover:text-[var(--primary-green)] flex items-center space-x-2"
+                            >
+                              <ChevronRight className="w-4 h-4" />
+                              <span>Ver todos</span>
+                            </Link>
+                            {productLinks.map((link) => (
+                              <Link
+                                key={link.name}
+                                to={link.href}
+                                onClick={() => setIsOpen(false)}
+                                className={`px-8 py-3 font-semibold transition-colors flex items-center space-x-2 ${
+                                  location.pathname === link.href 
+                                    ? 'text-[var(--primary-green)] font-bold' 
+                                    : 'text-gray-500 hover:text-[var(--primary-green)]'
+                                }`}
+                              >
+                                <ChevronRight className="w-4 h-4 opacity-50" />
+                                <span>{link.name}</span>
+                              </Link>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+
+                  {[
+                    { name: 'Calidad', href: '/quality', icon: Award },
+                    { name: 'Contacto', href: '/contact', icon: Phone },
+                  ].map((link) => {
+                    const isActive = location.pathname === link.href;
+                    const Icon = link.icon;
+                    return (
+                      <Link
+                        key={link.name}
+                        to={link.href}
+                        onClick={() => setIsOpen(false)}
+                        className={`flex items-center space-x-4 px-4 py-4 rounded-xl font-bold transition-all ${
+                          isActive 
+                            ? 'bg-[var(--primary-green)] text-white shadow-lg' 
+                            : 'text-gray-700 hover:bg-gray-50'
+                        }`}
+                      >
+                        <Icon className={`w-5 h-5 ${isActive ? 'text-white' : 'text-gray-400'}`} />
+                        <span className="text-lg">{link.name}</span>
+                      </Link>
+                    );
+                  })}
+                </div>
+
+                <div className="mt-auto pt-10">
+                  <div className="p-6 rounded-2xl bg-[var(--primary-green)] text-white relative overflow-hidden">
+                    <div className="relative z-10">
+                      <p className="text-sm font-semibold opacity-80 mb-1">Dudas o consultas?</p>
+                      <p className="text-xl font-bold mb-4">¡Contáctanos!</p>
+                      <Link 
+                        to="/contact" 
+                        onClick={() => setIsOpen(false)}
+                        className="inline-block bg-white text-[var(--primary-green)] px-6 py-2 rounded-lg font-bold text-sm shadow-md active:scale-95 transition-transform"
+                      >
+                        Ir a contacto
+                      </Link>
+                    </div>
+                    <Leaf className="absolute -bottom-6 -right-6 w-32 h-32 opacity-10 rotate-12" />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }
