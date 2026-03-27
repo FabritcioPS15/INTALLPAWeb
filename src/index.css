@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-green: #3E5F1E;
+  --secondary-green: #5C7F2A;
+  --accent-green: #7FAF3B;
+  --gold-primary: #D89B2B;
+  --gold-dark: #A86F1F;
+  --gold-soft: #E3B44C;
+  --bg-light: #F5F3EF;
+  --neutral-gray: #4A4A4A;
+  --light-gray: #E0E0E0;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: var(--neutral-gray);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
