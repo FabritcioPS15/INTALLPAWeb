@@ -1,4 +1,4 @@
-import { Leaf, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
@@ -9,11 +9,10 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 rounded-full flex items-center justify-center shadow-lg" style={{ backgroundColor: 'var(--gold-primary)' }}>
-                <Leaf className="w-6 h-6 text-white" />
+            <div className="flex items-center mb-6">
+              <div className="w-48 h-48 flex items-center justify-center overflow-hidden">
+                <img src="/images/LogoIntallpa.png" alt="INTALLPA Logo" className="w-full h-full object-contain" />
               </div>
-              <span className="text-xl font-bold">INTALLPA FOODS</span>
             </div>
             <p className="text-white/80 text-sm leading-relaxed">
               Empresa agroindustrial líder, comprometida con la calidad, la sostenibilidad y la excelencia.

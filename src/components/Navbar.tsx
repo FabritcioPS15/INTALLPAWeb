@@ -42,13 +42,10 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          <Link to="/" className="flex items-center space-x-2 group">
-            <div className="w-10 h-10 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110 group-hover:rotate-12 shadow-md" style={{ backgroundColor: 'var(--primary-green)' }}>
-              <Leaf className="w-6 h-6 text-white" />
+          <Link to="/" className="flex items-center group">
+            <div className="w-24 h-24 flex items-center justify-center transition-transform group-hover:scale-110 group-hover:rotate-12 overflow-hidden">
+              <img src="/images/LogoIntallpa.png" alt="INTALLPA Logo" className="w-full h-full object-contain" />
             </div>
-            <span className="text-xl font-bold tracking-tight" style={{ color: isScrolled || !isHome ? 'var(--primary-green)' : 'white' }}>
-              INTALLPA FOODS
-            </span>
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
@@ -192,13 +189,10 @@ export default function Navbar() {
             >
               <div className="p-6 flex flex-col h-full">
                 <div className="flex justify-between items-center mb-10">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-[var(--primary-green)] shadow-md">
-                      <Leaf className="w-5 h-5 text-white" />
+                  <div className="flex items-center">
+                    <div className="w-20 h-20 flex items-center justify-center overflow-hidden">
+                      <img src="/images/LogoIntallpa.png" alt="INTALLPA Logo" className="w-full h-full object-contain" />
                     </div>
-                    <span className="text-lg font-bold tracking-tight text-[var(--primary-green)]">
-                      INTALLPA
-                    </span>
                   </div>
                   <button
                     onClick={() => setIsOpen(false)}
