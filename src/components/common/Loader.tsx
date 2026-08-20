@@ -1,25 +1,21 @@
-import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const spin = keyframes`
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+`;
+
+const pulse = keyframes`
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+`;
 
 const Loader = () => {
   return (
     <StyledWrapper>
-      <div className="container">
-        <div className="tree">
-          {[0, 1, 2, 3].map((x) => (
-            <div key={x} className="branch" style={{ '--x': x } as React.CSSProperties}>
-              {[0, 1, 2, 3].map((i) => (
-                <span key={i} style={{ '--i': i } as React.CSSProperties} />
-              ))}
-            </div>
-          ))}
-          <div className="stem">
-            {[0, 1, 2, 3].map((i) => (
-              <span key={i} style={{ '--i': i } as React.CSSProperties} />
-            ))}
-          </div>
-          <span className="shadow" />
-        </div>
+      <div className="spinner-container">
+        <div className="spinner" />
+        <p className="loading-text">Cargando...</p>
       </div>
     </StyledWrapper>
   );
@@ -34,76 +30,28 @@ const StyledWrapper = styled.div`
   background-color: var(--bg-light);
   z-index: 9999;
 
-  .container {
-    width: 100%;
+  .spinner-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    gap: 1.5rem;
   }
 
-  .tree {
-    position: relative;
-    width: 100px;
-    height: 100px;
-    transform-style: preserve-3d;
-    transform: rotateX(-20deg) rotateY(30deg);
-    animation: treeAnimate 5s linear infinite;
+  .spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid #e0e0e0;
+    border-top: 4px solid var(--primary-green, #3E5F1E);
+    border-radius: 50%;
+    animation: ${spin} 0.8s linear infinite;
   }
 
-  @keyframes treeAnimate {
-    0% {
-      transform: rotateX(-20deg) rotateY(360deg);
-    }
-    100% {
-      transform: rotateX(-20deg) rotateY(0deg);
-    }
-  }
-
-  .tree div {
-    position: absolute;
-    top: -50px;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transform: translateY(calc(25px * var(--x))) translateZ(0px);
-  }
-
-  .tree div.branch span {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, #69c069, #77dd77);
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-    border-bottom: 5px solid #00000019;
-    transform-origin: bottom;
-    transform: rotateY(calc(90deg * var(--i))) rotateX(30deg) translateZ(55px);
-  }
-
-  .tree div.stem span {
-    position: absolute;
-    top: 110px;
-    left: calc(50% - 15px);
-    width: 30px;
-    height: 60px;
-    background: linear-gradient(90deg, #bb4622, #df7214);
-    border-bottom: 5px solid #00000019;
-    transform-origin: bottom;
-    transform: rotateY(calc(90deg * var(--i))) translateZ(15px);
-  }
-
-  .shadow {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    filter: blur(20px);
-    transform-style: preserve-3d;
-    transform: rotateX(90deg) translateZ(-65px);
+  .loading-text {
+    color: var(--primary-green, #3E5F1E);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    animation: ${pulse} 1.5s ease-in-out infinite;
   }
 `;
 

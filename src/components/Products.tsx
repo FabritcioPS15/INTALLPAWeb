@@ -11,7 +11,7 @@ const products = [
     name: 'Cacao orgánico',
     label: 'Exportación certificada',
     description: 'Cultivado en condiciones óptimas, respetando prácticas sostenibles y garantizando un sabor auténtico para chocolatería premium.',
-    image: 'https://images.unsplash.com/photo-1481391243133-f96216dcb5d2?w=1200&auto=format&fit=crop&q=80',
+    image: '/images/Cacao%20Organico.jpeg',
     color: 'from-[#2d5016]/90',
   },
   {
@@ -20,7 +20,7 @@ const products = [
     name: 'Café verde',
     label: 'Estándares internacionales',
     description: 'Seleccionamos cuidadosamente granos de café verde, garantizando calidad superior para tostadores especializados y mercados exigentes.',
-    image: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1200&auto=format&fit=crop&q=80',
+    image: '/images/Cafe%20verde.jpeg',
     color: 'from-[#3b1f0a]/90',
   },
   {
@@ -29,7 +29,7 @@ const products = [
     name: 'Maca gelatinizada',
     label: 'Superalimento natural',
     description: 'Superalimento altamente nutritivo y de alta biodisponibilidad, rico en energía natural. Ideal para suplementos y formulaciones saludables.',
-    image: 'https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=1200&auto=format&fit=crop&q=80',
+    image: '/images/Maca%20en%20polvo.jfif',
     color: 'from-[#1a3a1a]/90',
   },
   {
@@ -38,7 +38,7 @@ const products = [
     name: 'Frutas deshidratadas',
     label: '100% natural, sin azúcar',
     description: 'Procesadas cuidadosamente para conservar su sabor, textura y valor nutricional. Perfectas para snacks saludables y uso industrial.',
-    image: 'https://images.unsplash.com/photo-1490474504059-bf2db5ab2348?w=1200&auto=format&fit=crop&q=80',
+    image: '/images/Fruta%20deshidratada.jpeg',
     color: 'from-[#5c1f0a]/90',
   },
 ];
@@ -133,7 +133,7 @@ export default function Products() {
                   alt={product.name}
                   className="absolute inset-0 w-full h-full object-cover"
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&auto=format&fit=crop&q=80';
+                    (e.target as HTMLImageElement).src = '/images/Agroindustria.jpeg';
                   }}
                 />
                 {/* Gradient overlay */}

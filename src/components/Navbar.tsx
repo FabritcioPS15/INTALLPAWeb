@@ -43,7 +43,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center group">
-            <div className="w-24 h-24 flex items-center justify-center transition-transform group-hover:scale-110 group-hover:rotate-12 overflow-hidden">
+            <div className="w-24 h-24 flex items-center justify-center transition-transform duration-300 group-hover:scale-105 overflow-hidden">
               <img src="/images/LogoIntallpa.png" alt="INTALLPA Logo" className="w-full h-full object-contain" />
             </div>
           </Link>

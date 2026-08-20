@@ -11,7 +11,7 @@ const productDetails = [
     icon: Leaf,
     name: 'Cacao de origen orgánico',
     description: 'Nuestro cacao orgánico de origen certificado es cultivado en condiciones óptimas, respetando prácticas sostenibles y garantizando un sabor auténtico. Ideal para la industria alimentaria, chocolatería y exportación.',
-    image: 'https://images.unsplash.com/photo-1611162458324-aae1eb4129a4?auto=format&fit=crop&q=80&w=1200',
+    image: '/images/Cacao%20Organico.jpeg',
     features: [
       'Cultivo 100% orgánico certificado',
       'Perfil de sabor y aroma excepcional',
@@ -24,7 +24,7 @@ const productDetails = [
     icon: Coffee,
     name: 'Café verde de alta calidad',
     description: 'Seleccionamos cuidadosamente granos de café verde, asegurando estándares internacionales en cada etapa del proceso. Perfecto para tostadores, distribuidores y mercados exigentes.',
-    image: 'https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&fit=crop&q=80&w=1200',
+    image: '/images/Cafe%20verde.jpeg',
     features: [
       'Selección manual de granos',
       'Estándares internacionales (SCA)',
@@ -37,7 +37,7 @@ const productDetails = [
     icon: Sprout,
     name: 'Harina de maca gelatinizada',
     description: 'Nuestra harina de maca gelatinizada es un superalimento altamente nutritivo, fácil de digerir y rico en energía natural. Ideal para suplementos, industria alimentaria y productos saludables.',
-    image: 'https://images.unsplash.com/photo-1606915152864-44ed4d38ecbf?auto=format&fit=crop&q=80&w=1200',
+    image: '/images/Maca%20en%20polvo.jfif',
     features: [
       'Alta biodisponibilidad',
       'Fuente natural de energía',
@@ -50,7 +50,7 @@ const productDetails = [
     icon: Apple,
     name: 'Frutas deshidratadas naturales',
     description: 'Ofrecemos frutas deshidratadas cuidadosamente seleccionadas, procesadas para conservar su sabor, textura y valor nutricional. Perfectas para snacks saludables y productos industriales.',
-    image: 'https://images.unsplash.com/photo-1519999482648-25049ddd37b1?auto=format&fit=crop&q=80&w=1200',
+    image: '/images/Fruta%20deshidratada.jpeg',
     features: [
       '100% fruta natural',
       'Alta retención de nutrientes',
@@ -68,7 +68,7 @@ export default function ProductsPage() {
       <Banner 
         title="Nuestro Catálogo de Productos" 
         subtitle="Agroindustria de precisión con calidad de exportación superior."
-        image="https://images.unsplash.com/photo-1595113316349-9fa4ee24f884?auto=format&fit=crop&q=80"
+        image="/images/Agroindustria.jpeg"
       />
       
       <section className="py-24 px-4 relative overflow-hidden bg-white">

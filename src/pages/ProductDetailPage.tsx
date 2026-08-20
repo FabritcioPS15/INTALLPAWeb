@@ -17,7 +17,7 @@ const productsData = {
       'Libre de pesticidas y químicos',
       'Ideal para la industria chocolatera premium'
     ],
-    image: 'https://images.unsplash.com/photo-1611162458324-aae1eb4129a4?auto=format&fit=crop&q=80&w=1200',
+    image: '/images/Cacao%20Organico.jpeg',
     icon: Leaf
   },
   'cafe': {
@@ -30,7 +30,7 @@ const productsData = {
       'Trazabilidad desde el origen',
       'Perfecto para tostadores especializados'
     ],
-    image: 'https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&fit=crop&q=80&w=1200',
+    image: '/images/Cafe%20verde.jpeg',
     icon: Coffee
   },
   'maca': {
@@ -43,7 +43,7 @@ const productsData = {
       'Rica en minerales y vitaminas',
       'Ideal para suplementos e industria alimentaria'
     ],
-    image: 'https://images.unsplash.com/photo-1606915152864-44ed4d38ecbf?auto=format&fit=crop&q=80&w=1200',
+    image: '/images/Maca%20en%20polvo.jfif',
     icon: Sprout
   },
   'frutas': {
@@ -56,7 +56,7 @@ const productsData = {
       'Larga vida útil natural',
       'Perfectas para snacks saludables'
     ],
-    image: 'https://images.unsplash.com/photo-1519999482648-25049ddd37b1?auto=format&fit=crop&q=80&w=1200',
+    image: '/images/Fruta%20deshidratada.jpeg',
     icon: Apple
   }
 };
