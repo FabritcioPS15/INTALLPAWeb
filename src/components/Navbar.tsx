@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Leaf, ChevronDown, ChevronRight, Home, Info, Award, Phone } from 'lucide-react';
+import { Menu, X, Leaf, ChevronDown, ChevronRight, Home, Award, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -60,20 +60,6 @@ export default function Navbar() {
               Inicio
               <span className={`absolute -bottom-1 left-0 h-0.5 transition-all duration-300 ${
                 location.pathname === '/' ? 'w-full' : 'w-0 group-hover:w-full'
-              } ${isScrolled || !isHome ? 'bg-[var(--primary-green)]' : 'bg-[var(--gold-soft)]'}`} />
-            </Link>
-
-            <Link
-              to="/about"
-              className={`text-sm font-bold uppercase tracking-wider transition-all relative group ${
-                location.pathname === '/about' 
-                  ? 'text-[var(--primary-green)]' 
-                  : isScrolled || !isHome ? 'text-gray-700 hover:text-[var(--primary-green)]' : 'text-white hover:text-[var(--gold-soft)]'
-              }`}
-            >
-              Nosotros
-              <span className={`absolute -bottom-1 left-0 h-0.5 transition-all duration-300 ${
-                location.pathname === '/about' ? 'w-full' : 'w-0 group-hover:w-full'
               } ${isScrolled || !isHome ? 'bg-[var(--primary-green)]' : 'bg-[var(--gold-soft)]'}`} />
             </Link>
 
@@ -205,7 +191,6 @@ export default function Navbar() {
                 <div className="flex flex-col space-y-2">
                   {[
                     { name: 'Inicio', href: '/', icon: Home },
-                    { name: 'Nosotros', href: '/about', icon: Info },
                   ].map((link) => {
                     const isActive = location.pathname === link.href;
                     const Icon = link.icon;
